@@ -13,13 +13,23 @@ public class KitapDaoImplementation {
     @Autowired
     private KitapRepository kitapRepository;
 
-    public List<Kitap> getAllKitap(){ return kitapRepository.findAll();}
+    public List<Kitap> getAllKitap() {
+        return kitapRepository.findAll();
+    }
 
-    public void saveKitap(Kitap kitap){ kitapRepository.save(kitap);}
+    public void saveKitap(Kitap kitap) {
+        kitapRepository.save(kitap);
+    }
 
-    public Kitap getKitapById(String id){ return kitapRepository.findById(id).orElse(null);}
+    public Kitap getKitapById(String id) {
+        return kitapRepository.findById(id).orElse(null);
+    }
 
-    public void updateKitap(Kitap kitap){kitapRepository.save(kitap); }
+    public void updateKitap(Kitap kitap) {
+        kitapRepository.save(kitap);
+    }
 
-    public void deleteKitap(String id){kitapRepository.deleteById(id);}
+    public void deleteKitap(String id) {
+        kitapRepository.delete(kitapRepository.getOne(id));
+    }
 }
